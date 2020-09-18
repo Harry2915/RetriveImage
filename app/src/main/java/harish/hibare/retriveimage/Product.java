@@ -2,17 +2,14 @@ package harish.hibare.retriveimage;
 
 public class Product {
     private int id;
-    private String title;
-    private String shortdesc;
-    private double rating;
+    private String name;
+
     private double price;
     private String image;
 
-    public Product(int id, String title, String shortdesc, double rating, double price, String image) {
+    public Product(int id, String name,  double price, String image) {
         this.id = id;
-        this.title = title;
-        this.shortdesc = shortdesc;
-        this.rating = rating;
+        this.name =name;
         this.price = price;
         this.image = image;
     }
@@ -21,16 +18,8 @@ public class Product {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getShortdesc() {
-        return shortdesc;
-    }
-
-    public double getRating() {
-        return rating;
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {

@@ -1,6 +1,7 @@
 package harish.hibare.retriveimage;
 
 
+
 import android.os.Bundle;
 
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     //this is the JSON Data URL
     //make sure you are using the correct ip else it will not work
-    private static final String URL_PRODUCTS = "http://192.168.101.1/MyApi/Api.php";
+    private static final String URL_PRODUCTS = "https://hackingtools.tech/Android/Shopping/retrive_product.php";
 
     //a list to store all the products
     List<Product> productList;
@@ -78,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 //adding the product to product list
                                 productList.add(new Product(
                                         product.getInt("id"),
-                                        product.getString("title"),
-                                        product.getString("shortdesc"),
-                                        product.getDouble("rating"),
+                                        product.getString("name"),
                                         product.getDouble("price"),
                                         product.getString("image")
                                 ));

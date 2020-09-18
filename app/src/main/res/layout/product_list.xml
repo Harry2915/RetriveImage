@@ -1,88 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="175dp"
-        android:layout_height="370dp"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="1dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:elevation="1dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
-        <LinearLayout
-            android:id="@+id/productItem"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:padding="4dp" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#000000" />
 
-            <ImageView
-                android:id="@+id/imgProductImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:contentDescription="product_image"
-                android:src="@drawable/watch" />
+        <TextView
+            android:id="@+id/textViewShortDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTitle"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="13.3 Inch, 256 GB"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
-            <TextView
-                android:id="@+id/txtProductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="28dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="casio G-SHOCK Watch"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textViewRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewShortDesc"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="4.7"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtProductPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="28dp"
-                android:text="50 $"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewRating"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView"
+            android:text="INR 56990"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+    </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/imgShare"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/touch_feedback"
-                    android:contentDescription="share_product"
-                    android:src="@drawable/ic_share" />
-
-                <ImageView
-                    android:id="@+id/imgCart"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="20dp"
-                    android:contentDescription="add to cart"
-                    android:src="@drawable/ic_add_shopping_cart" />
-
-                <ImageView
-                    android:id="@+id/imgFavourite"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:contentDescription="add to favourite"
-                    android:src="@drawable/ic_favorite_border" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</layout>
+</LinearLayout>
