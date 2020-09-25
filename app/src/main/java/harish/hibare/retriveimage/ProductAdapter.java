@@ -1,23 +1,23 @@
 package harish.hibare.retriveimage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import harish.hibare.retriveimage.Product;
+import static harish.hibare.retriveimage.MainActivity.decodeImageString;
 
-/**
- * Created by Belal on 10/18/2017.
- */
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -30,12 +30,29 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.productList = productList;
     }
 
+
     @Override
-    public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.product_list, null);
         return new ProductViewHolder(view);
     }
+
+
+
+
+
+//    public void onBindViewHolder(CategoryViewHolder.ViewHolder holder, int
+//            position) {
+//        CategoryModel category = categories.get(position);
+//        String categories = "";
+//
+//
+//        holder.textView.setText(category.getCategoryName());
+//        //convert the image string int bytes like this
+//
+//
+//    }
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
@@ -43,11 +60,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         //loading the image
         Glide.with(mCtx)
-                .load(product.getImage())
-                .into(holder.imageView);
+                .load(decodeImageString)
+                .into(ProductViewHolder.imageView);
 
-        holder.textViewTitle.setText(product.getName());
+        holder.textViewTitle.setText(product.getTitle());
+        holder.textViewShortDesc.setText(product.getShortdesc());
+        holder.textViewRating.setText(String.valueOf(product.getRating()));
         holder.textViewPrice.setText(String.valueOf(product.getPrice()));
+
     }
 
     @Override
@@ -55,10 +75,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
-    class ProductViewHolder extends RecyclerView.ViewHolder {
+    static class ProductViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
-        ImageView imageView;
+        @SuppressLint("StaticFieldLeak")
+        static ImageView imageView;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
